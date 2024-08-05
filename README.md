@@ -64,16 +64,14 @@ source ~/.bash_profile
 llvm-config --version
 sw_vers
 
-1. Clone the Repository
-
 cd ~/Desktop
 mkdir CyclomaticComplexityPlugin
 cd CyclomaticComplexityPlugin
 git clone https://github.com/KTS-o7/cyclomatic-complexity-clang-plugin.git
-(MacOSX < x > MacOS 13.02)
-or
+#(MacOSX < x > MacOS 13.02)
+#or
 https://github.com/Developer1010x/cyclomatic-complexity-clang-plugin.git
-(MacOS 12 =< )
+#(MacOS 12 =< )
 cd cyclomatic-complexity-clang-plugin
 mkdir build
 cd build
@@ -83,13 +81,13 @@ cmake ..
 mkdir -p ../test
 cd ../test
 cd /Users/sprajwalln/Desktop/<dir name>/cyclomatic-complexity-clang-plugin
-
+pwd
 cd test
-/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir name>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.dylib -o sample sample.cpp
+/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir name & path>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.dylib -o sample sample.cpp
 
-or
+#or
 
-/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir name>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.so -o sample sample.cpp
+/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir path>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.so -o sample sample.cpp
 
 cat result.cy
 ```
