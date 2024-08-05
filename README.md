@@ -1,5 +1,67 @@
 # Cyclomatic Complexity Tool
 
+# Cyclomatic Complexity Clang Plugin
+
+## Overview
+
+This project demonstrates how to create a Clang plugin for calculating cyclomatic complexity. It provides step-by-step instructions for setting up the project, building it, and testing it on macOS.
+
+## Prerequisites
+
+- macOS
+- Clang and LLVM installed via Homebrew
+- CMake
+- Git
+
+## Setup Instructions
+
+ ```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+xcode-select --install
+clang --version
+brew install llvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+source ~/.zshrc
+# or
+source ~/.bash_profile
+llvm-config --version
+sw_vers
+
+
+
+exit
+
+### 1. Clone the Repository
+
+```bash
+cd ~/Desktop
+mkdir CyclomaticComplexityPlugin
+cd CyclomaticComplexityPlugin
+git clone https://github.com/KTS-o7/cyclomatic-complexity-clang-plugin.git
+(MacOSX < x > MacOS 13.02)
+or
+https://github.com/Developer1010x/cyclomatic-complexity-clang-plugin.git
+(MacOS 12 =< )
+cd cyclomatic-complexity-clang-plugin
+mkdir build
+cd build
+export LLVM_DIR=/usr/local/opt/llvm/lib/cmake/llvm
+export CLANG_DIR=/usr/local/opt/llvm/lib/cmake/clang
+cmake ..
+mkdir -p ../test
+cd ../test
+cd /Users/sprajwalln/Desktop/<dir name>/cyclomatic-complexity-clang-plugin
+
+cd test
+/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir name>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.dylib -o sample sample.cpp
+
+or
+
+/usr/local/opt/llvm/bin/clang++ -fplugin=/Users/<dir name>/ cyclomatic-complexity-clang-plugin/build/libCyclomaticComplexity.so -o sample sample.cpp
+
+cat result.cy
 
 
 ## Overview
